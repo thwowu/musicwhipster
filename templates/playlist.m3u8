@@ -1,0 +1,9 @@
+#EXTM3U
+{% for song in songs %}
+{% if song.length -%}
+#EXTINF:{{ song.length }}, {{ song.artist }} - {{ song.title }}
+{%- elif song.title and song.artist -%}
+#EXTINF:-1, {{ song.artist }} - {{ song.title }}
+{%- endif %}
+{{ song.filepath }}
+{% endfor %}
